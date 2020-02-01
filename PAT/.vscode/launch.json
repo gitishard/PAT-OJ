@@ -2,10 +2,22 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Main1016",
+            "request": "launch",
+            "mainClass": "Main1016"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main1",
+            "request": "launch",
+            "mainClass": "Main1"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Main",
             "request": "launch",
             "mainClass": "Main",
-            "console":"integratedTerminal"
+            "console": "integratedTerminal"
         }
     ]
 }
