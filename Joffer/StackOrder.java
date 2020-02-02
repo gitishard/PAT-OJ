@@ -1,35 +1,16 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.Stack;
 
-public class Solution {
-    //未通过
-
-
-
-
-
+public class StackOrder {
     public boolean IsPopOrder(int[] pushA,int[] popA) {
-        List<Integer> alist = new ArrayList<Integer>(Arrays.asList(pushA));
-        for(int i = 0; i < popA.length-1; i++){
-            int index = alist.indexOf(popA[i]);
-            if(index > 0 && index < popA.length-1){
-                if(popA[i+1] == (int)alist.get(index+1) || popA[i+1] == (int)alist.get(index-1))
-                    alist.remove(index);
-                else
-                    return false;
-            } else if(index == 0){
-                if(popA[i+1] == (int)alist.get(index+1))
-                    alist.remove(index);
-                else
-                    return false;
-            } else{
-                if(popA[i+1] == (int)alist.get(index-1))
-                    alist.remove(index);
-                else
-                    return false;
+        Stack<Integer> data = new Stack<Integer>();
+        int top = 0;
+        for(int i = 0; i < pushA.length; i++){
+            data.push(pushA[i]);
+            while(!data.empty() && popA[top] == data.peek()){
+                top++;
+                data.pop();
             }
         }
-        return true;
+        return data.empty();
     }
 }
